@@ -1,16 +1,21 @@
 ---
 title: "How to Build a Strong AI Agent System: Top 8 Advice"
-slug: "ai-agent-system-building-guide"
-journalist: "dr-emily-chen"
-category: "videos"
-tags: ["ai-agent", "llm", "development", "video-note"]
-date: "2025-01-16"
-excerpt: "AI Founders, Investors, and Customer Feedback reveal the top 8 principles for building reliable AI agent systems."
-status: "published"
+slug: ai-agent-system-building-guide
+journalist: dr-emily-chen
+category: videos
+tags:
+  - ai-agent
+  - llm
+  - development
+  - video-note
+date: 2025-01-16
+excerpt: AI Founders, Investors, and Customer Feedback reveal the top 8 principles for building reliable AI agent systems.
+status: published
 featured: false
-reading_time: "12 min"
-video_url: "https://www.youtube.com/embed/XFo3mHXW34Y"
-video_channel: "Sean's Stories"
+reading_time: 12 min
+video_url: https://www.youtube.com/embed/XFo3mHXW34Y
+video_channel: Sean's Stories
+featured_image: /assets/images/113.jpg
 ---
 
 <div class="video-embed">

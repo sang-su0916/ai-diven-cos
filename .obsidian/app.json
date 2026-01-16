@@ -1,1 +1,10 @@
-{}
+{
+  "userIgnoreFilters": [
+    "site/",
+    "node_modules/",
+    ".git/"
+  ],
+  "attachmentFolderPath": "content/_assets/images",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "content"
+}
