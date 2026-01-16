@@ -16,8 +16,24 @@ const CONFIG = {
   publicDir: path.join(__dirname, '../public'),
   siteUrl: process.env.SITE_URL || 'https://passeth.github.io/ai-diven_cos',
   siteName: 'AI Cosmetics Innovation Journal',
-  categories: ['development', 'products', 'ingredients', 'trends', 'tips']
+  categories: [] // Will be populated by scanCategories()
 };
+
+/**
+ * Scan content directory for category folders
+ * Excludes folders starting with '_' (e.g., _assets)
+ */
+function scanCategories() {
+  const contentDir = CONFIG.contentDir;
+  if (!fs.existsSync(contentDir)) return [];
+  
+  return fs.readdirSync(contentDir, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('_'))
+    .map(dirent => dirent.name);
+}
+
+// Initialize categories from folder scan
+CONFIG.categories = scanCategories();
 
 // Persona data (imported from PERSONAS.md)
 const PERSONAS = {
@@ -65,7 +81,7 @@ const PERSONAS = {
   }
 };
 
-// Category metadata
+// Category metadata (known categories)
 const CATEGORIES = {
   development: { name: 'Development', description: 'AI cosmetics R&D process', color: '#6366f1' },
   products: { name: 'Products', description: 'Product information & reviews', color: '#ec4899' },
@@ -73,6 +89,25 @@ const CATEGORIES = {
   trends: { name: 'Trends', description: 'Industry trends & research', color: '#f59e0b' },
   tips: { name: 'Tips', description: 'Beauty tips & usage guides', color: '#8b5cf6' }
 };
+
+// Default colors for auto-discovered categories
+const DEFAULT_COLORS = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#14b8a6', '#f97316'];
+
+/**
+ * Get category metadata (returns defaults for unknown categories)
+ */
+function getCategoryMeta(categorySlug) {
+  if (CATEGORIES[categorySlug]) {
+    return CATEGORIES[categorySlug];
+  }
+  // Generate default metadata for new categories
+  const colorIndex = CONFIG.categories.indexOf(categorySlug) % DEFAULT_COLORS.length;
+  return {
+    name: categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1).replace(/-/g, ' '),
+    description: `Articles about ${categorySlug.replace(/-/g, ' ')}`,
+    color: DEFAULT_COLORS[colorIndex]
+  };
+}
 
 /**
  * Convert Obsidian-style image links to HTML
@@ -175,7 +210,7 @@ function getImagePath(article) {
  * Generate article card HTML
  */
 function generateArticleCard(article, size = 'normal') {
-  const categoryData = CATEGORIES[article.category] || CATEGORIES.tips;
+  const categoryData = getCategoryMeta(article.category);
   const imagePath = getImagePath(article);
   
   return `
@@ -247,7 +282,7 @@ function buildArticlePages(articles) {
   fs.mkdirSync(articlesDir, { recursive: true });
   
   for (const article of articles) {
-    const categoryData = CATEGORIES[article.category] || CATEGORIES.tips;
+    const categoryData = getCategoryMeta(article.category);
     
     // Get related articles (same category, different article)
     const related = articles
@@ -360,7 +395,7 @@ function buildRssFeed(articles) {
       <pubDate>${new Date(article.date).toUTCString()}</pubDate>
       <guid>${CONFIG.siteUrl}/articles/${article.slug}.html</guid>
       <author>${article.persona.name}</author>
-      <category>${CATEGORIES[article.category]?.name || article.category}</category>
+      <category>${getCategoryMeta(article.category).name}</category>
     </item>
   `).join('');
   
