@@ -14,11 +14,12 @@ updated: 2025-01-08
 featured_image: /assets/images/105.webp
 excerpt: Not all peptides are created equal. Here's the science behind which peptides actually deliver results and which are just marketing.
 status: published
-featured: false
+featured: true
 homepage_priority: 6
 reading_time: 9 min
+github_repo: passeth|ai-diven_cos
 ---
-![[@ONGOING_NEW/ai-diven_cos/content/_assets/images/105.webp]]
+![[2025-01-08-peptides-explained_20260116_1.png]]
 # Peptides in Skincare: What Works
 
 Peptides are everywhere in anti-aging skincare. But with hundreds of peptides on the market, how do you know which ones actually work?
@@ -79,6 +80,8 @@ Think of them as text messages to your skin cells: "Hey, make more collagen!"
 
 **Evidence strength:** Limited ⚠️
 
+
+![[content/_assets/images/2025-01-08-peptides-explained_20260116_2.png]]
 ## Which Peptides Actually Work?
 
 Based on clinical evidence, here's my honest assessment:
@@ -114,7 +117,8 @@ They will:
 - Provide modest improvement over 2-3 months
 - Support overall skin health
 - Complement other anti-aging strategies
-
+- 
+![[2025-01-08-peptides-explained_20260116_3.png]]
 ## How to Use Peptides
 
 **Best Practices:**

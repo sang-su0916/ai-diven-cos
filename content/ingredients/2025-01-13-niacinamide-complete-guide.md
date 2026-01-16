@@ -18,7 +18,7 @@ featured: false
 homepage_priority: 4
 reading_time: 10 min
 ---
-![[@ONGOING_NEW/ai-diven_cos/content/_assets/images/118.jpg]]
+
 # Niacinamide: The Complete Science-Backed Guide
 
 Niacinamide (vitamin B3) has become one of the most popular skincare ingredients—and for good reason. But between marketing hype and actual science, what does the research really say?
