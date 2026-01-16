@@ -1206,6 +1206,34 @@ p {
 }
 
 /* ================================
+   Video Embed (Responsive)
+   ================================ */
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin: var(--space-6) 0 var(--space-8);
+  background: var(--color-bg-secondary);
+  border: 1px dashed var(--color-border);
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.article-content .video-embed + p {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ================================
    Article Layout with Sidebar
    ================================ */
 

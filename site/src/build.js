@@ -87,7 +87,8 @@ const CATEGORIES = {
   products: { name: 'Products', description: 'Product information & reviews', color: '#ec4899' },
   ingredients: { name: 'Ingredients', description: 'Ingredient science & formulation', color: '#10b981' },
   trends: { name: 'Trends', description: 'Industry trends & research', color: '#f59e0b' },
-  tips: { name: 'Tips', description: 'Beauty tips & usage guides', color: '#8b5cf6' }
+  tips: { name: 'Tips', description: 'Beauty tips & usage guides', color: '#8b5cf6' },
+  videos: { name: 'Videos', description: 'Video notes & learning resources', color: '#ef4444' }
 };
 
 // Default colors for auto-discovered categories
