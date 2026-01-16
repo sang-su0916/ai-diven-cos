@@ -407,6 +407,42 @@ function buildJournalistPages(articles) {
 }
 
 /**
+ * Build tag pages
+ */
+function buildTagPages(articles) {
+  const tagDir = path.join(CONFIG.outputDir, 'tag');
+  fs.mkdirSync(tagDir, { recursive: true });
+  
+  // Collect all unique tags
+  const tagMap = new Map();
+  for (const article of articles) {
+    for (const tag of (article.tags || [])) {
+      if (!tagMap.has(tag)) {
+        tagMap.set(tag, []);
+      }
+      tagMap.get(tag).push(article);
+    }
+  }
+  
+  // Build page for each tag
+  for (const [tag, tagArticles] of tagMap) {
+    const articlesHtml = tagArticles.map(a => generateArticleCard(a)).join('');
+    
+    const html = renderTemplate('tag', {
+      siteName: CONFIG.siteName,
+      tagName: tag,
+      articleCount: tagArticles.length,
+      articles: articlesHtml,
+      year: new Date().getFullYear()
+    });
+    
+    const outputPath = path.join(tagDir, `${tag}.html`);
+    fs.writeFileSync(outputPath, html);
+    console.log(`Built: tag/${tag}.html`);
+  }
+}
+
+/**
  * Generate RSS feed
  */
 function buildRssFeed(articles) {
@@ -536,6 +572,7 @@ async function build() {
   buildArticlePages(articles);
   buildCategoryPages(articles);
   buildJournalistPages(articles);
+  buildTagPages(articles);
   buildRssFeed(articles);
   buildSitemap(articles);
   copyPublicAssets();

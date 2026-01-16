@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>#{{ tagName }} | {{ siteName }}</title>
+  <meta name="description" content="Articles tagged with {{ tagName }}. Explore {{ articleCount }} articles.">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">{{ siteName }}</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/development.html">Development</a>
+        <a href="/category/products.html">Products</a>
+        <a href="/category/ingredients.html">Ingredients</a>
+        <a href="/category/trends.html">Trends</a>
+        <a href="/category/tips.html">Tips</a>
+        <a href="/category/videos.html">Videos</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Tag Hero -->
+  <section class="page-hero" style="--hero-color: #6b7280">
+    <div class="container">
+      <span class="page-hero__label">Tag</span>
+      <h1 class="page-hero__title">#{{ tagName }}</h1>
+      <p class="page-hero__description">Articles tagged with "{{ tagName }}"</p>
+      <span class="page-hero__count">{{ articleCount }} articles</span>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="articles-grid">
+        {{ articles }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">{{ siteName }}</span>
+          </span>
+          <p>AI-powered insights into the future of cosmetics and skincare innovation.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/development.html">Development</a>
+          <a href="/category/products.html">Products</a>
+          <a href="/category/ingredients.html">Ingredients</a>
+          <a href="/category/trends.html">Trends</a>
+          <a href="/category/tips.html">Tips</a>
+          <a href="/category/videos.html">Videos</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{ year }} {{ siteName }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
