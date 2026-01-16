@@ -1,6 +1,17 @@
-# AI Cosmetics Innovation Journal
+# Obsidian Zero-Cost CMS Template
 
-A complete AI-powered journal platform for cosmetics innovation, connecting Obsidian vault → Git → Web publishing pipeline.
+A complete **zero-cost CMS** connecting Obsidian → GitHub → Vercel. Write in Markdown, deploy automatically.
+
+> **[Live Demo](https://ai-diven-cos.vercel.app)** | **[Sample Article](https://ai-diven-cos.vercel.app/articles/niacinamide-complete-guide.html)**
+
+## What You Can Build
+
+Use this template to create blogs, journals, documentation sites, or any content-driven website:
+
+- Write content in **Obsidian** (offline, Markdown)
+- Push to **GitHub** with one click
+- Auto-deploy to **Vercel** (free hosting, SSL, CDN)
+- **$0/month** infrastructure cost
 
 ## 💡 Zero-Cost CMS Architecture
 
@@ -60,27 +71,44 @@ This project is a static site generator for a cosmetics innovation journal, feat
 ## 🚀 Quick Start
 
 ### Prerequisites
+- Python 3.8+
 - Node.js 18+
 - Git
+- [Obsidian](https://obsidian.md/)
 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/passeth/ai-diven_cos.git
-cd ai-diven_cos
+# 1. Clone the template
+git clone https://github.com/passeth/ai-diven_cos.git my-blog
+cd my-blog
 
-# Install dependencies
+# 2. Run interactive setup
+python setup.py
+
+# 3. Create your GitHub repo, then push
+git push -u origin main
+
+# 4. Import to Vercel: https://vercel.com/new
+```
+
+The `setup.py` script will configure:
+- Site name & description
+- GitHub repository connection
+- Content categories
+- Obsidian plugin settings
+
+### Manual Setup (without setup.py)
+
+```bash
 npm install
-
-# Build the site
 npm run build
-
-# Start development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+See **[SETUP.md](SETUP.md)** for detailed instructions.
 
 ## 📁 Project Structure
 
@@ -237,9 +265,10 @@ With **GitHub Sync** plugin installed:
 
 ## 🔗 Links
 
+- **Live Demo**: https://ai-diven-cos.vercel.app
+- **Sample Article**: https://ai-diven-cos.vercel.app/articles/niacinamide-complete-guide.html
 - **Repository**: https://github.com/passeth/ai-diven_cos
-- **Live Site**: Deployed via Vercel
-- **Documentation**: `/docs/`
+- **Quick Setup Guide**: [SETUP.md](SETUP.md)
 
 ## 📄 License
 
