@@ -27,3 +27,4 @@ Obsidian 글 작성 → git push → Vercel 자동 배포
 ```
 
 비용: **$0/월**
+
