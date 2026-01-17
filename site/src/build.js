@@ -15,7 +15,7 @@ const CONFIG = {
   templatesDir: path.join(__dirname, 'pages'),
   publicDir: path.join(__dirname, '../public'),
   siteUrl: process.env.SITE_URL || 'https://passeth.github.io/ai-diven_cos',
-  siteName: 'AI Cosmetics Innovation Journal',
+  siteName: 'L-BIZ PARTNERS 블로그',
   categories: [] // Will be populated by scanCategories()
 };
 
@@ -37,6 +37,12 @@ CONFIG.categories = scanCategories();
 
 // Persona data (imported from PERSONAS.md)
 const PERSONAS = {
+  'sangsu-lee': {
+    name: '이상수',
+    role: '엘비즈파트너스 대표',
+    avatar: '/assets/personas/sangsu-lee.png',
+    bio: 'AI 기반 비즈니스 컨설팅 전문가. sangsu0916@naver.com'
+  },
   'dr-sarah-kim': {
     name: 'Dr. Sarah Kim',
     role: 'R&D Scientist',
