@@ -1,13 +1,16 @@
 ---
-title: "내 블로그에 오신 것을 환영합니다"
-slug: "welcome-to-my-blog"
-journalist: "author"
-category: "posts"
-tags: ["welcome", "first-post", "obsidian"]
-date: "2025-01-16"
-excerpt: "Obsidian 볼트에서 직접 작성하고 자동 배포되는 첫 번째 글입니다."
-status: "published"
-reading_time: "2 min"
+title: 블로그에 오신 것을 환영합니다
+slug: welcome-to-my-blog
+journalist: author
+category: posts
+tags:
+  - welcome
+  - first-post
+  - obsidian
+date: 2025-01-16
+excerpt: Obsidian 볼트에서 직접 작성하고 자동 배포되는 첫 번째 글입니다.
+status: published
+reading_time: 2 min
 ---
 
 # 내 블로그에 오신 것을 환영합니다
