@@ -227,10 +227,14 @@ function generateArticleCard(article, size = 'normal') {
  * Build homepage
  */
 function buildHomepage(articles) {
-  const featuredArticles = articles.filter(a => a.featured).slice(0, 3);
+  // featured 글이 없으면 최신 글 3개를 featured로 사용
+  let featuredArticles = articles.filter(a => a.featured).slice(0, 3);
+  if (featuredArticles.length === 0) {
+    featuredArticles = articles.slice(0, 3);
+  }
   const recentArticles = articles.slice(0, 12);
-  
-  const featuredHtml = featuredArticles.map((a, i) => 
+
+  const featuredHtml = featuredArticles.map((a, i) =>
     generateArticleCard(a, i === 0 ? 'featured' : 'normal')
   ).join('');
   

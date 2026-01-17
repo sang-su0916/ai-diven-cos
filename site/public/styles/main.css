@@ -247,10 +247,10 @@ p {
    ================================ */
 
 .hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-purple) 100%);
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%);
   padding: var(--space-16) 0;
   text-align: center;
-  border-bottom: var(--color-border-thick) solid var(--color-border);
+  border-bottom: 3px solid var(--color-secondary);
   position: relative;
   overflow: hidden;
 }
@@ -277,7 +277,7 @@ p {
   font-weight: 900;
   margin-bottom: var(--space-4);
   color: #fff;
-  text-shadow: 4px 4px 0 var(--color-border);
+  text-shadow: 4px 4px 0 var(--color-accent-gold);
   position: relative;
   letter-spacing: -0.02em;
 }
