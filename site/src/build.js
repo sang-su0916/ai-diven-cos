@@ -35,67 +35,25 @@ function scanCategories() {
 // Initialize categories from folder scan
 CONFIG.categories = scanCategories();
 
-// Persona data (imported from PERSONAS.md)
+// Persona data
 const PERSONAS = {
   'sangsu-lee': {
     name: '이상수',
     role: '경영자문 전문가 · AI 강사 · AI 융합 창업가',
     avatar: '/assets/personas/sangsu-lee.png',
     bio: '엘비즈파트너스 대표. 「잘되는 회사는 분명 특별한 이유가 있다」 「경영컨설팅은 끝났다!」 저자. 법인 설립/전환 컨설팅 전문. sangsu0916@naver.com'
-  },
-  'dr-sarah-kim': {
-    name: 'Dr. Sarah Kim',
-    role: 'R&D Scientist',
-    avatar: '/assets/personas/dr-sarah-kim.svg',
-    bio: '15 years in K-beauty innovation. PhD Cosmetic Chemistry.'
-  },
-  'dr-james-park': {
-    name: 'Dr. James Park',
-    role: 'Clinical Research Director',
-    avatar: '/assets/personas/dr-james-park.svg',
-    bio: '20 years clinical practice. MD from Harvard Medical School.'
-  },
-  'dr-emily-chen': {
-    name: 'Dr. Emily Chen',
-    role: 'Biotechnology Innovation Lead',
-    avatar: '/assets/personas/dr-emily-chen.svg',
-    bio: 'PhD Biochemistry MIT. AI cosmetics formulation pioneer.'
-  },
-  'yuna-lee': {
-    name: 'Yuna Lee',
-    role: 'Beauty Editor',
-    avatar: '/assets/personas/yuna-lee.svg',
-    bio: '6 years beauty journalism. Former Allure Korea editor.'
-  },
-  'alex-thompson': {
-    name: 'Alex Thompson',
-    role: 'Trend Analyst',
-    avatar: '/assets/personas/alex-thompson.svg',
-    bio: '12 years beauty consulting. MBA London Business School.'
-  },
-  'minji-kang': {
-    name: 'Min-ji Kang',
-    role: 'Lifestyle Writer',
-    avatar: '/assets/personas/minji-kang.svg',
-    bio: '10 years lifestyle media. Holistic beauty advocate.'
-  },
-  'dr-david-rodriguez': {
-    name: 'Dr. David Rodriguez',
-    role: 'Sustainability Officer',
-    avatar: '/assets/personas/dr-david-rodriguez.svg',
-    bio: 'PhD Environmental Chemistry. B Corp advisor.'
   }
 };
 
 // Category metadata (known categories)
 const CATEGORIES = {
   posts: { name: '블로그', description: 'AI 비즈니스 인사이트 & 가이드', color: '#2563eb' },
-  development: { name: '개발', description: 'AI 코스메틱 R&D 프로세스', color: '#6366f1' },
-  products: { name: '제품', description: '제품 정보 & 리뷰', color: '#ec4899' },
-  ingredients: { name: '성분', description: '성분 과학 & 포뮬레이션', color: '#10b981' },
-  trends: { name: '트렌드', description: '업계 트렌드 & 리서치', color: '#f59e0b' },
-  tips: { name: '팁', description: '뷰티 팁 & 사용 가이드', color: '#8b5cf6' },
-  videos: { name: '영상', description: '영상 노트 & 학습 자료', color: '#ef4444' }
+  'corporation': { name: '법인설립', description: '법인 설립 및 전환 컨설팅', color: '#1e40af' },
+  'tax': { name: '세무', description: '세무 관리 및 절세 전략', color: '#059669' },
+  'labor': { name: '노무', description: '노무 관리 및 인사 자문', color: '#7c3aed' },
+  'finance': { name: '재무', description: '재무 관리 및 자금 조달', color: '#dc2626' },
+  'education': { name: '교육', description: 'AI 및 경영 교육 프로그램', color: '#f59e0b' },
+  'ai-tools': { name: 'AI 도구', description: 'AI 도구 활용 가이드', color: '#0891b2' }
 };
 
 // Default colors for auto-discovered categories
@@ -162,7 +120,7 @@ function getArticles() {
           rawContent: markdown,  // Original markdown for image detection
           filePath,
           category,
-          persona: PERSONAS[frontmatter.journalist] || PERSONAS['yuna-lee']
+          persona: PERSONAS[frontmatter.journalist] || PERSONAS['sangsu-lee']
         });
       }
     }
@@ -487,7 +445,7 @@ function buildRssFeed(articles) {
   <channel>
     <title>${CONFIG.siteName}</title>
     <link>${CONFIG.siteUrl}</link>
-    <description>AI-powered insights into cosmetics innovation</description>
+    <description>중소기업 경영컨설팅 전문 - 법인설립, 세무, 노무, 재무</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${CONFIG.siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
@@ -580,7 +538,7 @@ function formatDate(dateStr) {
  * Main build function
  */
 async function build() {
-  console.log('\n>> Building AI Cosmetics Journal...\n');
+  console.log('\n>> Building L-BIZ PARTNERS Blog...\n');
   
   const startTime = Date.now();
   

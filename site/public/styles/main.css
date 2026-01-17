@@ -18,23 +18,23 @@
   --color-border: #1a1a1a;
   --color-border-thick: 3px;
 
-  /* Accent Colors */
-  --color-primary: #2563eb;
-  --color-primary-light: #60a5fa;
-  --color-secondary: #f59e0b;
-  --color-accent-pink: #ec4899;
-  --color-accent-green: #10b981;
-  --color-accent-purple: #8b5cf6;
-  --color-accent-red: #ef4444;
+  /* Accent Colors - 경영컨설팅 테마 (Gold & Navy) */
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2d5a8a;
+  --color-secondary: #c9a227;
+  --color-accent-gold: #c9a227;
+  --color-accent-green: #059669;
+  --color-accent-purple: #7c3aed;
+  --color-accent-red: #dc2626;
 
-  /* Category Colors */
-  --color-posts: #2563eb;
-  --color-development: #6366f1;
-  --color-products: #ec4899;
-  --color-ingredients: #10b981;
-  --color-trends: #f59e0b;
-  --color-tips: #8b5cf6;
-  --color-videos: #ef4444;
+  /* Category Colors - 경영컨설팅 */
+  --color-posts: #1e3a5f;
+  --color-corporation: #1e40af;
+  --color-tax: #059669;
+  --color-labor: #7c3aed;
+  --color-finance: #dc2626;
+  --color-education: #f59e0b;
+  --color-ai-tools: #0891b2;
 
   /* Typography - Korean-friendly */
   --font-sans: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
