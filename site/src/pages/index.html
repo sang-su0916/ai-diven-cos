@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ siteName }} - AI-Powered Cosmetics Innovation</title>
-  <meta name="description" content="Explore cutting-edge cosmetics innovation powered by AI. Expert insights on ingredients, formulation, trends, and beauty tips.">
+  <title>{{ siteName }} - AI 비즈니스 인사이트</title>
+  <meta name="description" content="AI 기반 비즈니스 혁신 인사이트. 세무·노무 자동화, 컨설팅, 창업 가이드 전문.">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="alternate" type="application/rss+xml" title="{{ siteName }}" href="/feed.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -17,14 +17,12 @@
         <span class="site-logo__text">{{ siteName }}</span>
       </a>
       <nav class="site-nav">
-        <a href="/category/development.html">Development</a>
-        <a href="/category/products.html">Products</a>
-        <a href="/category/ingredients.html">Ingredients</a>
-        <a href="/category/trends.html">Trends</a>
-        <a href="/category/tips.html">Tips</a>
-        <a href="/category/videos.html">Videos</a>
+        <a href="/category/posts.html">블로그</a>
+        <a href="/category/tips.html">팁</a>
+        <a href="/category/trends.html">트렌드</a>
+        <a href="/category/videos.html">영상</a>
       </nav>
-      <button class="menu-toggle" aria-label="Toggle menu">
+      <button class="menu-toggle" aria-label="메뉴 토글">
         <span></span>
         <span></span>
         <span></span>
@@ -35,15 +33,15 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1 class="hero__title">AI-Powered Cosmetics Innovation</h1>
-      <p class="hero__subtitle">Expert insights from R&D scientists, clinical researchers, and beauty experts on the future of skincare</p>
+      <h1 class="hero__title">AI 비즈니스 인사이트</h1>
+      <p class="hero__subtitle">중소기업·1인 기업을 위한 AI 활용 가이드. 세무·노무 자동화부터 컨설팅까지.</p>
     </div>
   </section>
 
   <!-- Featured Articles -->
   <section class="featured-section">
     <div class="container">
-      <h2 class="section-title">Featured Stories</h2>
+      <h2 class="section-title">주요 콘텐츠</h2>
       <div class="featured-grid">
         {{ featured }}
       </div>
@@ -53,7 +51,7 @@
   <!-- Category Navigation -->
   <section class="categories-section">
     <div class="container">
-      <h2 class="section-title">Explore Topics</h2>
+      <h2 class="section-title">카테고리</h2>
       <div class="category-grid">
         {{ categories }}
       </div>
@@ -63,7 +61,7 @@
   <!-- Recent Articles -->
   <section class="articles-section">
     <div class="container">
-      <h2 class="section-title">Latest Articles</h2>
+      <h2 class="section-title">최신 글</h2>
       <div class="articles-grid">
         {{ articles }}
       </div>
@@ -74,11 +72,11 @@
   <section class="newsletter-section">
     <div class="container">
       <div class="newsletter-box">
-        <h2>Stay Updated</h2>
-        <p>Get the latest cosmetics innovation insights delivered to your inbox</p>
+        <h2>뉴스레터 구독</h2>
+        <p>최신 AI 비즈니스 인사이트를 이메일로 받아보세요</p>
         <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
+          <input type="email" placeholder="이메일 주소 입력" required>
+          <button type="submit">구독하기</button>
         </form>
       </div>
     </div>
@@ -92,22 +90,19 @@
           <span class="site-logo">
             <span class="site-logo__text">{{ siteName }}</span>
           </span>
-          <p>AI-powered insights into the future of cosmetics and skincare innovation.</p>
+          <p>AI 기반 비즈니스 혁신을 위한 인사이트와 가이드를 제공합니다.</p>
         </div>
         <div class="footer-links">
-          <h4>Categories</h4>
-          <a href="/category/development.html">Development</a>
-          <a href="/category/products.html">Products</a>
-          <a href="/category/ingredients.html">Ingredients</a>
-          <a href="/category/trends.html">Trends</a>
-          <a href="/category/tips.html">Tips</a>
-          <a href="/category/videos.html">Videos</a>
+          <h4>카테고리</h4>
+          <a href="/category/posts.html">블로그</a>
+          <a href="/category/tips.html">팁</a>
+          <a href="/category/trends.html">트렌드</a>
+          <a href="/category/videos.html">영상</a>
         </div>
         <div class="footer-links">
-          <h4>Resources</h4>
-          <a href="/feed.xml">RSS Feed</a>
-          <a href="/sitemap.xml">Sitemap</a>
-          <a href="/admin/">Admin</a>
+          <h4>리소스</h4>
+          <a href="/feed.xml">RSS 피드</a>
+          <a href="/sitemap.xml">사이트맵</a>
         </div>
       </div>
       <div class="footer-bottom">

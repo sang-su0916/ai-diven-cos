@@ -1,6 +1,6 @@
 /**
- * AI Cosmetics Journal - Dark Theme Design System
- * Inspired by Every.to minimal editorial aesthetic
+ * L-BIZ PARTNERS Blog - Neo Brutalism Design System
+ * Modern, bold, high-contrast Korean blog design
  */
 
 /* ================================
@@ -8,32 +8,38 @@
    ================================ */
 
 :root {
-  /* Dark Theme Colors */
-  --color-bg: #000000;
-  --color-bg-secondary: #0a0a0a;
-  --color-bg-tertiary: #111111;
-  --color-text: #ffffff;
-  --color-text-secondary: #888888;
-  --color-text-light: #555555;
-  --color-border: #333333;
-  --color-border-light: #222222;
-  
-  /* Category Colors (muted for dark theme) */
-  --color-development: #818cf8;
-  --color-products: #f472b6;
-  --color-ingredients: #34d399;
-  --color-trends: #fbbf24;
-  --color-tips: #a78bfa;
-  
-  /* Primary accent */
-  --color-primary: #ffffff;
-  --color-primary-dark: #cccccc;
-  --color-secondary: #888888;
-  
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Georgia', 'Times New Roman', serif;
-  
+  /* Neo Brutalism Colors */
+  --color-bg: #fffef5;
+  --color-bg-secondary: #fef3cd;
+  --color-bg-tertiary: #fff8e1;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-light: #6a6a6a;
+  --color-border: #1a1a1a;
+  --color-border-thick: 3px;
+
+  /* Accent Colors */
+  --color-primary: #2563eb;
+  --color-primary-light: #60a5fa;
+  --color-secondary: #f59e0b;
+  --color-accent-pink: #ec4899;
+  --color-accent-green: #10b981;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-red: #ef4444;
+
+  /* Category Colors */
+  --color-posts: #2563eb;
+  --color-development: #6366f1;
+  --color-products: #ec4899;
+  --color-ingredients: #10b981;
+  --color-trends: #f59e0b;
+  --color-tips: #8b5cf6;
+  --color-videos: #ef4444;
+
+  /* Typography - Korean-friendly */
+  --font-sans: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Black Han Sans', 'Noto Sans KR', sans-serif;
+
   /* Font Sizes */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -44,7 +50,7 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
-  
+
   /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -57,23 +63,30 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-20: 5rem;
-  
+
   /* Border Radius */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 4px;
-  --radius-xl: 4px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
-  
+
+  /* Neo Brutalism Shadows */
+  --shadow-brutal: 4px 4px 0 var(--color-border);
+  --shadow-brutal-hover: 6px 6px 0 var(--color-border);
+  --shadow-brutal-sm: 2px 2px 0 var(--color-border);
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
-  --transition-slow: 350ms ease;
-  
+
   /* Container */
   --container-max: 1200px;
   --container-narrow: 720px;
 }
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
 
 /* ================================
    Reset & Base Styles
@@ -93,11 +106,10 @@ html {
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -109,11 +121,11 @@ img {
 a {
   color: var(--color-text);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 a:hover {
-  color: var(--color-text-secondary);
+  color: var(--color-primary);
 }
 
 /* ================================
@@ -121,9 +133,9 @@ a:hover {
    ================================ */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 1.25;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  line-height: 1.3;
   color: var(--color-text);
 }
 
@@ -153,12 +165,12 @@ p {
 }
 
 /* ================================
-   Site Header
+   Site Header - Neo Brutalism
    ================================ */
 
 .site-header {
-  background: var(--color-bg);
-  border-bottom: 1px dashed var(--color-border);
+  background: var(--color-secondary);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -176,36 +188,40 @@ p {
   align-items: center;
   gap: var(--space-2);
   color: var(--color-text);
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: var(--text-lg);
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .site-logo:hover {
   color: var(--color-text);
-}
-
-.site-logo__icon {
-  font-size: var(--text-2xl);
+  transform: translateY(-2px);
 }
 
 .site-nav {
   display: flex;
-  gap: var(--space-8);
+  gap: var(--space-2);
 }
 
 .site-nav a {
-  color: var(--color-text-secondary);
-  font-weight: 400;
+  color: var(--color-text);
+  font-weight: 700;
   font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: color var(--transition-fast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal-sm);
+  transition: all var(--transition-fast);
 }
 
 .site-nav a:hover,
 .site-nav a.active {
-  color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-border);
 }
 
 .menu-toggle {
@@ -213,163 +229,83 @@ p {
   flex-direction: column;
   gap: 5px;
   padding: var(--space-2);
-  background: none;
-  border: none;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
   cursor: pointer;
+  box-shadow: var(--shadow-brutal-sm);
 }
 
 .menu-toggle span {
   display: block;
   width: 24px;
-  height: 2px;
+  height: 3px;
   background: var(--color-text);
-  transition: transform var(--transition-fast);
 }
 
 /* ================================
-   Hero Section
+   Hero Section - Neo Brutalism
    ================================ */
 
 .hero {
-  background: var(--color-bg);
-  padding: var(--space-16) 0 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-purple) 100%);
+  padding: var(--space-16) 0;
   text-align: center;
-  border-bottom: 1px dashed var(--color-border);
-}
-
-.hero__title {
-  font-family: var(--font-serif);
-  font-size: var(--text-5xl);
-  font-weight: 400;
-  margin-bottom: var(--space-4);
-  color: var(--color-text);
-}
-
-.hero__subtitle {
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.hero__image {
-  width: 100%;
-  height: 800px;
-  margin-top: var(--space-12);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
+  position: relative;
   overflow: hidden;
 }
 
-.hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255,255,255,0.05) 10px,
+    rgba(255,255,255,0.05) 20px
+  );
 }
 
-/* ================================
-   Page Hero (Category/Journalist)
-   ================================ */
-
-.page-hero {
-  background: var(--color-bg);
-  padding: var(--space-16) 0;
-  text-align: center;
-  border-bottom: 1px dashed var(--color-border);
-}
-
-.page-hero__label {
-  display: inline-block;
-  font-size: var(--text-xs);
-  font-weight: 400;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-3);
-}
-
-.page-hero__title {
-  font-family: var(--font-serif);
-  font-size: var(--text-4xl);
-  font-weight: 400;
+.hero__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-5xl);
+  font-weight: 900;
   margin-bottom: var(--space-4);
+  color: #fff;
+  text-shadow: 4px 4px 0 var(--color-border);
+  position: relative;
+  letter-spacing: -0.02em;
 }
 
-.page-hero__description {
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-4);
-}
-
-.page-hero__count {
-  display: inline-block;
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
-  padding: var(--space-2) var(--space-4);
-  background: transparent;
-  border: 1px dashed var(--color-border);
-}
-
-/* ================================
-   Journalist Profile
-   ================================ */
-
-.journalist-hero {
-  background: var(--color-bg);
-  padding: var(--space-16) 0;
-  border-bottom: 1px dashed var(--color-border);
-}
-
-.journalist-profile {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-  max-width: 700px;
+.hero__subtitle {
+  font-size: var(--text-xl);
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
   margin: 0 auto;
-}
-
-.journalist-profile__avatar {
-  width: 160px;
-  height: 160px;
-  border-radius: var(--radius-full);
-  object-fit: cover;
-  border: 2px solid var(--color-border);
-}
-
-.journalist-profile__name {
-  font-family: var(--font-serif);
-  font-size: var(--text-3xl);
-  font-weight: 400;
-  margin-bottom: var(--space-2);
-}
-
-.journalist-profile__role {
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
-  font-weight: 400;
-  margin-bottom: var(--space-4);
-}
-
-.journalist-profile__bio {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-4);
-}
-
-.journalist-profile__count {
-  font-size: var(--text-sm);
-  color: var(--color-text-light);
+  position: relative;
+  font-weight: 500;
 }
 
 /* ================================
-   Section Titles
+   Section Titles - Neo Brutalism
    ================================ */
 
 .section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: 900;
   margin-bottom: var(--space-8);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px dashed var(--color-border);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-secondary);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+  display: inline-block;
+  transform: rotate(-1deg);
 }
 
 /* ================================
@@ -378,28 +314,29 @@ p {
 
 .featured-section {
   padding: var(--space-16) 0;
-  border-bottom: 1px dashed var(--color-border);
+  background: var(--color-bg);
 }
 
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 /* ================================
-   Categories Section
+   Categories Section - Neo Brutalism
    ================================ */
 
 .categories-section {
   padding: var(--space-12) 0;
-  background: var(--color-bg);
-  border-bottom: 1px dashed var(--color-border);
+  background: var(--color-bg-secondary);
+  border-top: var(--color-border-thick) solid var(--color-border);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
 }
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: var(--space-4);
 }
 
@@ -408,27 +345,29 @@ p {
   flex-direction: column;
   align-items: center;
   padding: var(--space-6);
-  background: transparent;
-  border: 1px dashed var(--color-border);
-  transition: all var(--transition-base);
+  background: var(--color-bg);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+  transition: all var(--transition-fast);
   text-align: center;
 }
 
 .category-link:hover {
-  border-color: var(--color-text-secondary);
-  background: var(--color-bg-secondary);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--color-border);
 }
 
 .category-link__name {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 900;
   color: var(--color-text);
   margin-bottom: var(--space-1);
+  font-size: var(--text-lg);
 }
 
 .category-link__count {
   font-size: var(--text-sm);
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
+  font-weight: 500;
 }
 
 /* ================================
@@ -437,40 +376,30 @@ p {
 
 .articles-section {
   padding: var(--space-16) 0;
+  background: var(--color-bg);
 }
 
 .articles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
-}
-
-.related-section {
-  padding: var(--space-16) 0;
-  background: var(--color-bg);
-  border-top: 1px dashed var(--color-border);
-}
-
-.related-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
 }
 
 /* ================================
-   Article Card
+   Article Card - Neo Brutalism
    ================================ */
 
 .article-card {
-  background: transparent;
+  background: var(--color-bg);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
   overflow: hidden;
-  transition: all var(--transition-base);
-  padding-bottom: var(--space-8);
-  border-bottom: 1px dashed var(--color-border);
+  transition: all var(--transition-fast);
 }
 
 .article-card:hover {
-  opacity: 0.8;
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--color-border);
 }
 
 .article-card__link {
@@ -486,44 +415,43 @@ p {
   position: relative;
   aspect-ratio: 16/10;
   overflow: hidden;
-  margin-bottom: var(--space-4);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
 }
 
 .article-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-base);
 }
 
 .article-card:hover .article-card__image img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .article-card__category {
-  display: inline-block;
-  margin-bottom: var(--space-2);
-  padding: 0;
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: var(--space-1) var(--space-3);
   font-size: var(--text-xs);
-  font-weight: 400;
-  color: var(--color-text-secondary);
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-text);
+  border: 2px solid var(--color-border);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: transparent;
-  border-radius: 0;
 }
 
 .article-card__content {
-  padding: 0;
+  padding: var(--space-5);
 }
 
 .article-card__title {
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: 900;
   margin-bottom: var(--space-2);
-  line-height: 1.35;
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -538,12 +466,15 @@ p {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 1.6;
 }
 
 .article-card__meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: var(--space-3);
+  border-top: 2px dashed var(--color-border);
 }
 
 .article-card__author {
@@ -553,21 +484,26 @@ p {
 }
 
 .article-card__avatar {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-full);
   object-fit: cover;
+  border: 2px solid var(--color-border);
 }
 
 .article-card__author span {
   font-size: var(--text-sm);
-  font-weight: 400;
-  color: var(--color-text-secondary);
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .article-card__reading-time {
   font-size: var(--text-xs);
   color: var(--color-text-light);
+  font-weight: 600;
+  background: var(--color-bg-secondary);
+  padding: var(--space-1) var(--space-2);
+  border: 2px solid var(--color-border);
 }
 
 /* Featured Card */
@@ -593,31 +529,134 @@ p {
 }
 
 /* ================================
+   Page Hero (Category/Journalist)
+   ================================ */
+
+.page-hero {
+  background: var(--color-primary);
+  padding: var(--space-16) 0;
+  text-align: center;
+  border-bottom: var(--color-border-thick) solid var(--color-border);
+}
+
+.page-hero__label {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-3);
+}
+
+.page-hero__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-4xl);
+  font-weight: 900;
+  margin-bottom: var(--space-4);
+  color: #fff;
+  text-shadow: 3px 3px 0 var(--color-border);
+}
+
+.page-hero__description {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,0.9);
+  margin-bottom: var(--space-4);
+}
+
+.page-hero__count {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-secondary);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal-sm);
+}
+
+/* ================================
+   Journalist Profile
+   ================================ */
+
+.journalist-hero {
+  background: var(--color-accent-purple);
+  padding: var(--space-16) 0;
+  border-bottom: var(--color-border-thick) solid var(--color-border);
+}
+
+.journalist-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  padding: var(--space-8);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+}
+
+.journalist-profile__avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 4px solid var(--color-border);
+}
+
+.journalist-profile__name {
+  font-family: var(--font-sans);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  margin-bottom: var(--space-2);
+}
+
+.journalist-profile__role {
+  font-size: var(--text-lg);
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.journalist-profile__bio {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.journalist-profile__count {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+/* ================================
    Article Page
    ================================ */
 
 .article-hero {
   padding: var(--space-12) 0 var(--space-8);
   text-align: center;
+  background: var(--color-bg-secondary);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
 }
 
 .article-category {
   display: inline-block;
-  padding: 0;
-  font-size: var(--text-xs);
-  font-weight: 400;
-  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-primary);
+  border: 2px solid var(--color-border);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   margin-bottom: var(--space-4);
-  background: transparent;
-  border-radius: 0;
 }
 
 .article-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-4xl);
-  font-weight: 400;
+  font-weight: 900;
   max-width: 800px;
   margin: 0 auto var(--space-6);
   line-height: 1.2;
@@ -635,10 +674,15 @@ p {
   align-items: center;
   gap: var(--space-3);
   color: var(--color-text);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal-sm);
 }
 
 .article-author:hover {
-  color: var(--color-text-secondary);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-border);
 }
 
 .article-author__avatar {
@@ -646,6 +690,7 @@ p {
   height: 48px;
   border-radius: var(--radius-full);
   object-fit: cover;
+  border: 2px solid var(--color-border);
 }
 
 .article-author__info {
@@ -653,7 +698,7 @@ p {
 }
 
 .article-author__name {
-  font-weight: 500;
+  font-weight: 700;
   display: block;
 }
 
@@ -668,6 +713,7 @@ p {
   gap: var(--space-2);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
+  font-weight: 500;
 }
 
 .article-meta__separator {
@@ -678,7 +724,8 @@ p {
 .article-image {
   max-width: 900px;
   margin: 0 auto var(--space-12);
-  border-radius: var(--radius-md);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
   overflow: hidden;
 }
 
@@ -692,42 +739,43 @@ p {
 }
 
 .article-content h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: 900;
   margin-top: var(--space-10);
   margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-secondary);
+  border-left: 6px solid var(--color-border);
+  display: inline-block;
 }
 
 .article-content h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: 900;
   margin-top: var(--space-8);
   margin-bottom: var(--space-3);
 }
 
 .article-content p {
   font-size: var(--text-lg);
-  line-height: 1.8;
+  line-height: 1.9;
   color: var(--color-text);
 }
 
-.article-content a,
-.article-content a[style] {
-  color: var(--color-text) !important;
-  text-decoration: underline !important;
-  text-underline-offset: 2px;
-  font-size: inherit !important;
-  background: none !important;
+.article-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
 }
 
-.article-content a:hover,
-.article-content a[style]:hover {
-  color: var(--color-text-secondary) !important;
+.article-content a:hover {
+  color: var(--color-accent-purple);
 }
 
-.article-content ul, 
+.article-content ul,
 .article-content ol {
   margin: var(--space-4) 0;
   padding-left: var(--space-6);
@@ -740,21 +788,23 @@ p {
 }
 
 .article-content blockquote {
-  border-left: 2px solid var(--color-text-secondary);
+  border-left: 6px solid var(--color-primary);
   padding: var(--space-4) var(--space-6);
   margin: var(--space-8) 0;
-  background: transparent;
+  background: var(--color-bg-secondary);
   font-style: italic;
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
+  border: 2px solid var(--color-border);
+  border-left: 6px solid var(--color-primary);
+  box-shadow: var(--shadow-brutal-sm);
 }
 
 .article-content img {
   width: 100%;
-  border-radius: var(--radius-md);
   margin: var(--space-8) 0;
-  padding: var(--space-4);
-  background: rgba(255, 255, 255, 0.05);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
 }
 
 .article-content table {
@@ -762,36 +812,42 @@ p {
   border-collapse: collapse;
   margin: var(--space-6) 0;
   font-size: var(--text-sm);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
 }
 
 .article-content th,
 .article-content td {
   padding: var(--space-3) var(--space-4);
-  border: 1px dashed var(--color-border);
+  border: 2px solid var(--color-border);
   text-align: left;
 }
 
 .article-content th {
-  background: var(--color-bg-secondary);
-  font-weight: 500;
+  background: var(--color-secondary);
+  font-weight: 700;
+}
+
+.article-content tr:nth-child(even) {
+  background: var(--color-bg-tertiary);
 }
 
 .article-content code {
-  background: var(--color-bg-secondary);
+  background: var(--color-text);
+  color: var(--color-bg);
   padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
   font-size: 0.9em;
-  color: var(--color-text);
+  font-weight: 600;
 }
 
 .article-content pre {
-  background: var(--color-bg-secondary);
-  color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
   padding: var(--space-6);
-  border-radius: var(--radius-md);
   overflow-x: auto;
   margin: var(--space-6) 0;
-  border: 1px dashed var(--color-border);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
 }
 
 .article-content pre code {
@@ -802,34 +858,34 @@ p {
 /* Article Tags */
 .article-tags {
   padding-bottom: var(--space-8);
-  border-bottom: 1px dashed var(--color-border);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
 }
 
 .article-tag {
   display: inline-block;
   padding: var(--space-2) var(--space-4);
-  background: transparent;
-  color: var(--color-text-secondary);
-  border: 1px dashed var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
   font-size: var(--text-sm);
+  font-weight: 600;
   margin-right: var(--space-2);
   margin-bottom: var(--space-2);
+  box-shadow: var(--shadow-brutal-sm);
   transition: all var(--transition-fast);
 }
 
 .article-tag:hover {
   background: var(--color-text);
   color: var(--color-bg);
-  border-color: var(--color-text);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-border);
 }
 
 /* Article Share */
 .article-share {
   padding: var(--space-8) 0;
-  border-bottom: 1px dashed var(--color-border);
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
+  border-bottom: var(--color-border-thick) solid var(--color-border);
 }
 
 .article-share > .container {
@@ -839,8 +895,9 @@ p {
 }
 
 .article-share span {
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   font-size: var(--text-sm);
+  font-weight: 700;
 }
 
 .share-buttons {
@@ -853,34 +910,18 @@ p {
   align-items: center;
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
-  font-weight: 400;
-  border-radius: 0;
-  border: 1px dashed var(--color-border);
+  font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
-  background: transparent;
-  color: var(--color-text-secondary);
-}
-
-.share-btn--twitter {
-  background: transparent;
-  color: var(--color-text-secondary);
-}
-
-.share-btn--linkedin {
-  background: transparent;
-  color: var(--color-text-secondary);
-}
-
-.share-btn--copy {
-  background: transparent;
-  color: var(--color-text-secondary);
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal-sm);
 }
 
 .share-btn:hover {
-  background: var(--color-text);
-  color: var(--color-bg);
-  border-color: var(--color-text);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-border);
 }
 
 /* Author Bio */
@@ -893,15 +934,16 @@ p {
   align-items: center;
   gap: var(--space-6);
   padding: var(--space-6);
-  background: transparent;
-  border: 1px dashed var(--color-border);
+  background: var(--color-bg-secondary);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
   color: var(--color-text);
-  transition: all var(--transition-base);
+  transition: all var(--transition-fast);
 }
 
 .author-bio__card:hover {
-  border-color: var(--color-text-secondary);
-  color: var(--color-text);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--color-border);
 }
 
 .author-bio__avatar {
@@ -909,18 +951,19 @@ p {
   height: 80px;
   border-radius: var(--radius-full);
   object-fit: cover;
+  border: 3px solid var(--color-border);
 }
 
 .author-bio__name {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: 900;
   margin-bottom: var(--space-1);
 }
 
 .author-bio__role {
-  color: var(--color-text-secondary);
-  font-weight: 400;
+  color: var(--color-primary);
+  font-weight: 700;
   margin-bottom: var(--space-2);
 }
 
@@ -933,17 +976,18 @@ p {
 .author-bio__link {
   color: var(--color-text);
   font-size: var(--text-sm);
-  font-weight: 400;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* ================================
-   Newsletter Section
+   Newsletter Section - Neo Brutalism
    ================================ */
 
 .newsletter-section {
   padding: var(--space-16) 0;
-  background: var(--color-bg);
-  border-top: 1px dashed var(--color-border);
+  background: var(--color-accent-pink);
+  border-top: var(--color-border-thick) solid var(--color-border);
 }
 
 .newsletter-box {
@@ -951,14 +995,16 @@ p {
   margin: 0 auto;
   text-align: center;
   padding: var(--space-12);
-  background: transparent;
-  border: 1px dashed var(--color-border);
+  background: var(--color-bg);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: 8px 8px 0 var(--color-border);
 }
 
 .newsletter-box h2 {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 900;
   margin-bottom: var(--space-3);
+  font-size: var(--text-2xl);
 }
 
 .newsletter-box p {
@@ -974,11 +1020,11 @@ p {
 .newsletter-form input {
   flex: 1;
   padding: var(--space-4);
-  border: 1px dashed var(--color-border);
-  background: transparent;
+  border: var(--color-border-thick) solid var(--color-border);
+  background: var(--color-bg);
   color: var(--color-text);
   font-size: var(--text-base);
-  transition: border-color var(--transition-fast);
+  font-weight: 500;
 }
 
 .newsletter-form input::placeholder {
@@ -987,33 +1033,35 @@ p {
 
 .newsletter-form input:focus {
   outline: none;
-  border-color: var(--color-text);
+  box-shadow: inset 0 0 0 2px var(--color-primary);
 }
 
 .newsletter-form button {
   padding: var(--space-4) var(--space-8);
   background: var(--color-text);
   color: var(--color-bg);
-  border: 1px solid var(--color-text);
-  font-weight: 500;
+  border: var(--color-border-thick) solid var(--color-border);
+  font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
+  box-shadow: var(--shadow-brutal);
 }
 
 .newsletter-form button:hover {
-  background: transparent;
-  color: var(--color-text);
+  background: var(--color-primary);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-border);
 }
 
 /* ================================
-   Footer
+   Footer - Neo Brutalism
    ================================ */
 
 .site-footer {
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
   padding: var(--space-16) 0 var(--space-8);
-  border-top: 1px dashed var(--color-border);
+  border-top: var(--color-border-thick) solid var(--color-border);
 }
 
 .footer-grid {
@@ -1024,217 +1072,66 @@ p {
 }
 
 .footer-brand .site-logo {
-  color: var(--color-text);
+  color: var(--color-bg);
   margin-bottom: var(--space-4);
 }
 
 .footer-brand p {
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.7);
   max-width: 300px;
 }
 
 .footer-links h4 {
-  color: var(--color-text);
+  color: var(--color-secondary);
   font-family: var(--font-sans);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-4);
+  font-weight: 700;
 }
 
 .footer-links a {
   display: block;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.7);
   font-size: var(--text-sm);
   margin-bottom: var(--space-2);
+  font-weight: 500;
 }
 
 .footer-links a:hover {
-  color: var(--color-text);
+  color: var(--color-secondary);
 }
 
 .footer-bottom {
   padding-top: var(--space-8);
-  border-top: 1px dashed var(--color-border);
+  border-top: 2px dashed rgba(255,255,255,0.2);
   text-align: center;
 }
 
 .footer-bottom p {
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   font-size: var(--text-sm);
 }
 
 /* ================================
-   Responsive Design
+   Related Section
    ================================ */
 
-@media (max-width: 1024px) {
-  .featured-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .article-card--featured {
-    grid-column: span 2;
-  }
-  
-  .articles-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .category-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --text-5xl: 2.25rem;
-    --text-4xl: 1.875rem;
-    --text-3xl: 1.5rem;
-  }
-  
-  .hero__image {
-    height: 400px;
-    margin-top: var(--space-8);
-  }
-  
-  .site-nav {
-    display: none;
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--color-bg);
-    padding: var(--space-4);
-    flex-direction: column;
-    gap: var(--space-4);
-    border-bottom: 1px dashed var(--color-border);
-  }
-  
-  .site-nav.active {
-    display: flex;
-  }
-  
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .featured-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .article-card--featured {
-    grid-column: span 1;
-  }
-  
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .related-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-  
-  .journalist-profile {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .journalist-profile__avatar {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .newsletter-form {
-    flex-direction: column;
-  }
-  
-  .article-share > .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .author-bio__card {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 var(--space-4);
-  }
-  
-  .hero {
-    padding: var(--space-10) 0;
-  }
-  
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .article-image {
-    margin-left: calc(-1 * var(--space-4));
-    margin-right: calc(-1 * var(--space-4));
-    border-radius: 0;
-  }
-}
-
-/* ================================
-   Utilities
-   ================================ */
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ================================
-   Video Embed (Responsive)
-   ================================ */
-
-.video-embed {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  margin: var(--space-6) 0 var(--space-8);
+.related-section {
+  padding: var(--space-16) 0;
   background: var(--color-bg-secondary);
-  border: 1px dashed var(--color-border);
+  border-top: var(--color-border-thick) solid var(--color-border);
 }
 
-.video-embed iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.article-content .video-embed + p {
-  margin-top: var(--space-4);
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
 }
 
 /* ================================
-   Article Layout with Sidebar
+   Sidebar
    ================================ */
 
 .article-layout {
@@ -1255,12 +1152,12 @@ p {
   width: 320px;
   flex-shrink: 0;
   padding-left: var(--space-8);
-  border-left: 1px dashed var(--color-border);
+  border-left: var(--color-border-thick) solid var(--color-border);
 }
 
 .sidebar-section {
   position: sticky;
-  top: var(--space-8);
+  top: 100px;
 }
 
 .sidebar-header {
@@ -1268,17 +1165,15 @@ p {
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-sans);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-text-secondary);
+  font-weight: 700;
+  color: var(--color-text);
   margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px dashed var(--color-border);
-}
-
-.sidebar-arrow {
-  font-size: var(--text-sm);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-secondary);
+  border: 2px solid var(--color-border);
 }
 
 .sidebar-posts {
@@ -1286,22 +1181,20 @@ p {
   flex-direction: column;
 }
 
-/* Sidebar Post Card */
 .sidebar-post {
   display: flex;
   gap: var(--space-4);
-  padding: var(--space-4) 0;
-  border-bottom: 1px dashed var(--color-border);
+  padding: var(--space-4);
+  border: 2px solid var(--color-border);
+  margin-bottom: var(--space-3);
+  background: var(--color-bg);
   color: var(--color-text);
-  transition: opacity var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .sidebar-post:hover {
-  opacity: 0.7;
-}
-
-.sidebar-post:last-child {
-  border-bottom: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-border);
 }
 
 .sidebar-post__image {
@@ -1309,6 +1202,7 @@ p {
   height: 80px;
   flex-shrink: 0;
   overflow: hidden;
+  border: 2px solid var(--color-border);
 }
 
 .sidebar-post__image img {
@@ -1325,9 +1219,9 @@ p {
 }
 
 .sidebar-post__title {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
   line-height: 1.4;
   margin-bottom: var(--space-2);
   color: var(--color-text);
@@ -1336,22 +1230,180 @@ p {
 .sidebar-post__author {
   font-family: var(--font-sans);
   font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--color-text-secondary);
+  font-weight: 600;
 }
 
-/* Responsive: Hide sidebar on tablet and below */
+/* ================================
+   Video Embed
+   ================================ */
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  margin: var(--space-6) 0 var(--space-8);
+  border: var(--color-border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+
 @media (max-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .article-card--featured {
+    grid-column: span 2;
+  }
+
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .article-layout__wrapper {
     flex-direction: column;
   }
-  
+
   .article-sidebar {
     display: none;
   }
-  
+
   .article-layout .article-content {
     max-width: 100%;
   }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --text-5xl: 2.25rem;
+    --text-4xl: 1.875rem;
+    --text-3xl: 1.5rem;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--color-secondary);
+    padding: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-2);
+    border-bottom: var(--color-border-thick) solid var(--color-border);
+  }
+
+  .site-nav.active {
+    display: flex;
+  }
+
+  .site-nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card--featured {
+    grid-column: span 1;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .journalist-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .journalist-profile__avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .article-share > .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .author-bio__card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-title {
+    transform: rotate(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .hero {
+    padding: var(--space-10) 0;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-image {
+    margin-left: calc(-1 * var(--space-4));
+    margin-right: calc(-1 * var(--space-4));
+  }
+}
+
+/* ================================
+   Utilities
+   ================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -39,9 +39,9 @@ CONFIG.categories = scanCategories();
 const PERSONAS = {
   'sangsu-lee': {
     name: '이상수',
-    role: '엘비즈파트너스 대표',
+    role: '경영자문 전문가 · AI 강사 · AI 융합 창업가',
     avatar: '/assets/personas/sangsu-lee.png',
-    bio: 'AI 기반 비즈니스 컨설팅 전문가. sangsu0916@naver.com'
+    bio: '엘비즈파트너스 대표. 「잘되는 회사는 분명 특별한 이유가 있다」 「경영컨설팅은 끝났다!」 저자. 법인 설립/전환 컨설팅 전문. sangsu0916@naver.com'
   },
   'dr-sarah-kim': {
     name: 'Dr. Sarah Kim',
@@ -89,12 +89,13 @@ const PERSONAS = {
 
 // Category metadata (known categories)
 const CATEGORIES = {
-  development: { name: 'Development', description: 'AI cosmetics R&D process', color: '#6366f1' },
-  products: { name: 'Products', description: 'Product information & reviews', color: '#ec4899' },
-  ingredients: { name: 'Ingredients', description: 'Ingredient science & formulation', color: '#10b981' },
-  trends: { name: 'Trends', description: 'Industry trends & research', color: '#f59e0b' },
-  tips: { name: 'Tips', description: 'Beauty tips & usage guides', color: '#8b5cf6' },
-  videos: { name: 'Videos', description: 'Video notes & learning resources', color: '#ef4444' }
+  posts: { name: '블로그', description: 'AI 비즈니스 인사이트 & 가이드', color: '#2563eb' },
+  development: { name: '개발', description: 'AI 코스메틱 R&D 프로세스', color: '#6366f1' },
+  products: { name: '제품', description: '제품 정보 & 리뷰', color: '#ec4899' },
+  ingredients: { name: '성분', description: '성분 과학 & 포뮬레이션', color: '#10b981' },
+  trends: { name: '트렌드', description: '업계 트렌드 & 리서치', color: '#f59e0b' },
+  tips: { name: '팁', description: '뷰티 팁 & 사용 가이드', color: '#8b5cf6' },
+  videos: { name: '영상', description: '영상 노트 & 학습 자료', color: '#ef4444' }
 };
 
 // Default colors for auto-discovered categories
