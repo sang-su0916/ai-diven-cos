@@ -1,0 +1,8 @@
+# L-BIZ PARTNERS Blog
+# https://ai-divencos.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ai-divencos.vercel.app/sitemap.xml
