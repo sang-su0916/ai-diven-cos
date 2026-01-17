@@ -39,7 +39,8 @@ log "   종료하려면 Ctrl+C"
 # 초기 동기화
 deploy
 
-# 폴더 감시 (debounce 5초)
-fswatch -o -l 5 "$VAULT_CONTENT" | while read -r; do
+# 폴더 감시 (debounce 10초, 안정적인 동기화)
+fswatch -o -l 10 --event Created --event Updated --event Removed "$VAULT_CONTENT" | while read -r; do
+    sleep 2  # 파일 저장 완료 대기
     deploy
 done
