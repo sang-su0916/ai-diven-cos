@@ -1,252 +1,140 @@
-# AI Cosmetics Innovation Journal - Project Guidelines
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-A complete AI-powered journal platform for cosmetics innovation, connecting Obsidian vault to Git to Web publishing pipeline.
+L-BIZ PARTNERS 블로그 - Obsidian → GitHub → Vercel 자동 배포 시스템. 마크다운 콘텐츠를 정적 HTML 사이트로 변환하는 제로 비용 CMS.
 
-**Repository:** https://github.com/passeth/ai-diven_cos
+**Live Site:** https://ai-diven-cos.vercel.app
 
-## Tech Stack
-
-### Frontend (Website)
-- Pure HTML5, CSS3, JavaScript (ES6+)
-- No framework dependencies
-- Responsive design (mobile-first)
-- Markdown to HTML conversion via marked.js
-
-### Build System
-- Node.js static site generator
-- Image optimization (WebP conversion)
-- RSS feed generation
-- Sitemap generation
-
-### Content Management
-- Markdown files with YAML frontmatter
-- Git-based version control
-- Obsidian for writing environment
-- Claude Code skills for automation
-
-## Directory Structure
-
-```
-ai-diven_cos/
-├── content/                    # Markdown content
-│   ├── development/            # AI cosmetics R&D
-│   ├── products/               # Product reviews
-│   ├── ingredients/            # Ingredient science
-│   ├── trends/                 # Industry trends
-│   ├── tips/                   # Beauty tips
-│   └── _assets/                # Images & media
-├── site/
-│   ├── public/                 # Static assets
-│   ├── src/
-│   │   ├── components/         # HTML components
-│   │   ├── styles/             # CSS files
-│   │   ├── utils/              # JS utilities
-│   │   └── pages/              # Page templates
-│   ├── admin/                  # Admin dashboard
-│   └── build/                  # Generated output
-├── obsidian/
-│   ├── .obsidian/              # Obsidian config
-│   │   ├── plugins/
-│   │   ├── templates/
-│   │   └── snippets/
-│   ├── skills/                 # Claude Code skills
-│   └── commands/               # Custom commands
-└── docs/
-    ├── CLAUDE.md               # This file
-    ├── YAML_SCHEMA.md          # Frontmatter spec
-    └── PERSONAS.md             # Journalist personas
-```
-
-## Development Guidelines
-
-### Code Style
-
-**HTML:**
-- Semantic elements (`<article>`, `<section>`, `<nav>`)
-- Accessible markup (ARIA labels, alt text)
-- Valid HTML5
-
-**CSS:**
-- Mobile-first breakpoints
-- CSS custom properties for theming
-- BEM-like naming: `.component-name__element--modifier`
-
-**JavaScript:**
-- ES6+ features (arrow functions, destructuring, modules)
-- No jQuery or heavy libraries
-- Vanilla JS only
-
-### Commit Messages
-
-Format: `type(scope): description`
-
-Types:
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation
-- `style`: Formatting
-- `refactor`: Code restructuring
-- `content`: New article/content
-
-Examples:
-```
-feat(site): add article pagination
-fix(admin): resolve visibility toggle bug
-docs(yaml): update schema examples
-content(dev): add AI formulation article
-```
-
-### Branch Strategy
-
-- `main` - Production-ready code
-- `develop` - Integration branch
-- `feature/*` - New features
-- `content/*` - New articles
-
-## Content Creation Workflow
-
-### 1. Writing in Obsidian
-
-1. Open Obsidian vault (`/obsidian/` folder)
-2. Use template: `template-article.md`
-3. Fill in YAML frontmatter
-4. Write content in Markdown
-5. Save to appropriate category folder
-
-### 2. Image Management
-
-1. Add images to `/content/_assets/images/`
-2. Use WebP format when possible
-3. Naming: `{date}-{slug}-{number}.webp`
-4. Reference in markdown: `![Alt text](/assets/images/filename.webp)`
-
-### 3. Publishing
-
-1. Validate YAML with `yaml-validator` skill
-2. Run `article-publisher` skill
-3. Commit and push to Git
-4. Site auto-rebuilds
-
-## Build Process
-
-### Development
+## Essential Commands
 
 ```bash
-# Install dependencies
-npm install
+# 빌드
+npm run build           # 정적 사이트 생성 (site/build/)
 
-# Start dev server
-npm run dev
+# 개발 서버
+npm run dev             # localhost:3000에서 로컬 서버 실행
 
-# Build for production
-npm run build
+# 배포
+npm run deploy          # gh-pages로 배포 (GitHub Pages용)
+git push origin master  # Vercel 자동 배포 (권장)
+
+# 빌드 초기화
+npm run clean           # site/build/ 폴더 삭제
 ```
 
-### Build Steps
+## Architecture
 
-1. Scan `/content/` folders for `.md` files
-2. Parse YAML frontmatter
-3. Convert Markdown to HTML
-4. Apply page templates
-5. Optimize images
-6. Generate RSS feed (`/feed.xml`)
-7. Generate sitemap (`/sitemap.xml`)
-8. Output to `/site/build/`
-
-### Environment Variables
+### Build Pipeline
 
 ```
-NODE_ENV=production|development
-SITE_URL=https://your-domain.com
+content/**/*.md (Obsidian 마크다운)
+    ↓ gray-matter (YAML frontmatter 파싱)
+    ↓ marked.js (Markdown → HTML)
+    ↓ site/src/build.js (템플릿 적용)
+    ↓
+site/build/ (정적 HTML/CSS/JS)
+    ↓ git push
+    ↓
+Vercel (자동 배포)
 ```
 
-## Admin Dashboard
+### Key Files
 
-### Features
+| 파일 | 역할 |
+|------|------|
+| `site/src/build.js` | 정적 사이트 생성기 메인 로직. PERSONAS, CATEGORIES 정의 포함 |
+| `site/src/pages/*.html` | HTML 템플릿 (index, article, category, tag, journalist) |
+| `site/public/styles/main.css` | Neo Brutalism 디자인 시스템 (네이비/골드 테마) |
+| `auto-deploy.sh` | Obsidian 볼트 감시 → 자동 동기화 → git push 스크립트 |
+| `vercel.json` | Vercel 배포 설정 (outputDirectory: site/build) |
 
-- Article visibility toggle (draft/published)
-- Featured article management
-- Homepage priority ordering
-- Preview before publish
-- Analytics overview
+### Content Structure
 
-### Access
-
-Local: `http://localhost:3000/admin`
-Production: `https://your-domain.com/admin`
-
-## Claude Code Skills
-
-### Available Skills
-
-| Skill | Purpose |
-|-------|---------|
-| `journalist-writer.md` | Generate articles in persona voice |
-| `image-generator.md` | Create article images via NanoBanana |
-| `article-publisher.md` | Validate and publish articles |
-| `yaml-validator.md` | Check frontmatter completeness |
-| `seo-optimizer.md` | Optimize meta descriptions |
-
-### Usage
-
-In Claude Code:
 ```
-/journalist-writer persona=dr-sarah-kim topic="AI retinol formulation"
-/article-publisher path=content/development/my-article.md
+content/
+├── posts/          # 블로그 글
+├── _assets/
+│   └── images/     # 이미지 파일 (WebP 권장)
+└── [category]/     # 카테고리별 폴더 (자동 감지)
 ```
 
-## Troubleshooting
+### YAML Frontmatter (필수 필드)
 
-### Common Issues
-
-**Build fails:**
-- Check all YAML frontmatter is valid
-- Ensure no missing required fields
-- Verify image paths exist
-
-**Images not loading:**
-- Check path spelling
-- Ensure file is in `/_assets/images/`
-- Verify WebP format is supported
-
-**Admin not saving:**
-- Check file permissions
-- Verify Git is configured
-- Ensure no merge conflicts
-
-### Debug Mode
-
-Enable verbose logging:
-```bash
-DEBUG=true npm run build
+```yaml
+---
+title: "글 제목"
+slug: "url-slug"
+journalist: "sangsu-lee"    # PERSONAS 키와 매칭
+category: "posts"           # CATEGORIES 키와 매칭
+date: "2025-01-17"
+excerpt: "요약"
+status: "published"         # published만 빌드에 포함
+---
 ```
 
-## Performance Targets
+## Customization Points
 
-- Lighthouse score: > 90
-- First Contentful Paint: < 1.5s
-- Build time: < 30 seconds
-- Image optimization: 80% compression
+### 페르소나 추가/수정
+`site/src/build.js`의 PERSONAS 객체:
+```javascript
+const PERSONAS = {
+  'sangsu-lee': { name: '이상수', role: '...', avatar: '...', bio: '...' }
+};
+```
 
-## Deployment
+### 카테고리 추가/수정
+`site/src/build.js`의 CATEGORIES 객체:
+```javascript
+const CATEGORIES = {
+  posts: { name: '블로그', description: '...', color: '#2563eb' },
+  corporation: { name: '법인설립', description: '...', color: '#1e40af' }
+};
+```
 
-### GitHub Pages
+### 테마 색상
+`site/public/styles/main.css`의 CSS 변수:
+```css
+:root {
+  --color-primary: #1e3a5f;        /* 네이비 */
+  --color-secondary: #c9a227;      /* 골드 */
+  --color-accent-gold: #c9a227;
+}
+```
+
+## Auto-Deploy Workflow
+
+Obsidian 볼트의 `Web-Content` 폴더를 감시하여 자동 배포:
 
 ```bash
-npm run build
-npm run deploy
+# 자동 배포 시작 (터미널에서 실행)
+./auto-deploy.sh
+
+# 감시 중단: Ctrl+C
 ```
 
-### Manual
+동작: `Web-Content/` 변경 → `content/`로 rsync → git commit → git push → Vercel 자동 빌드
 
-1. Run `npm run build`
-2. Upload `/site/build/` to hosting
-3. Configure domain/SSL
+## Obsidian Integration
 
-## Contact
+### 이미지 링크 변환
+Obsidian 형식 `![[path/to/image.webp]]` → HTML `<img src="/assets/images/image.webp">` 자동 변환
 
-**Project:** AI Cosmetics Innovation Journal
-**Maintainer:** passeth
-**Repository:** https://github.com/passeth/ai-diven_cos
+### 권장 Obsidian 플러그인
+- GitHub Sync: 원클릭 푸시
+- Paste Image Rename: `{filename}_{date}_{n}.png` 형식
+- Templater: 글 템플릿
+- Linter: YAML 포맷팅
+
+## Build Output
+
+`npm run build` 실행 시 생성되는 파일:
+- `index.html` - 홈페이지
+- `articles/{slug}.html` - 개별 글 페이지
+- `category/{name}.html` - 카테고리 페이지
+- `journalist/{slug}.html` - 저자 페이지
+- `tag/{name}.html` - 태그 페이지
+- `feed.xml` - RSS 피드
+- `sitemap.xml` - 사이트맵
